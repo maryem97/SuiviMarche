@@ -1,9 +1,7 @@
 package net.crunchdroid.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Role {
@@ -12,6 +10,8 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+
+
 
     public Role() {
     }
