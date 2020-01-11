@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
 
 public class Employe {
 
@@ -28,5 +27,14 @@ public class Employe {
      @ManyToOne
     private Projet projet;
 
+     public Employe(){
 
+     }
+
+    public Employe(String prenom ,String nom,  String cin, String role) {
+        this.prenom=prenom;
+        this.nom=nom;
+        this.CIN=cin;
+        this.role=role;
+    }
 }
