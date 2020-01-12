@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
 
 
     public boolean addUser(UserDto user){
-        userRepository.save(new User(user.getLastName(),user.getFirstName(),user.getEmail(),user.getPassword()));
+        userRepository.save(new User(user.getLastName(),user.getFirstName(),user.getEmail(),user.getPassword(),user.getRole()));
         return true;
     }
 
@@ -46,6 +46,7 @@ public class UserServiceImpl implements UserService{
         byId.get().setFirstName(model.getFirstName());
         byId.get().setLastName(model.getLastName());
         byId.get().setEmail(model.getEmail());
+        byId.get().setRole(model.getRole());
         byId.get().setPassword(model.getPassword());
         userRepository.save(byId.get());
         return true;
@@ -73,6 +74,7 @@ public class UserServiceImpl implements UserService{
         user.setFirstName(registration.getFirstName());
         user.setLastName(registration.getLastName());
         user.setEmail(registration.getEmail());
+        user.setRole(registration.getRole());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
 
         user.setRoles(Arrays.asList(new Role("ROLE_USER")));

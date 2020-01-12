@@ -117,6 +117,15 @@
                                                                    th:field="*{lastName}">
                                                         </div>
                                                     </div>
+                                                   <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="role">Role <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 ">
+                                                            <input type="text" id="role" name="role" required="required" class="form-control"
+                                                                   th:field="*{role}">
+                                                        </div>
+                                                    </div>
+
                                                     <div class="item form-group">
                                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="email">Email <span class="required">*</span>
                                                         </label>
@@ -136,6 +145,19 @@
                                                                    th:field="*{password}">
                                                         </div>
                                                     </div>
+
+                                                    <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align"  >Service <span class="required">*</span>
+                                                        </label>
+                                                        <div>
+                                                            <select th:field="*{dropDownItem}" >
+                                                                <option th:each="dropDownItem : ${listString}"
+                                                                        th:value="${dropDownItem.nameService}"
+                                                                        th:text="${dropDownItem.nameService}" />
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="ln_solid"></div>
                                                     <div class="item form-group">
                                                         <div class="col-md-6 col-sm-6 offset-md-3">

@@ -4,12 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeDto {
+    private String dropDownItem;
     @NotEmpty
     private  String nom;
 
@@ -18,6 +20,29 @@ public class EmployeDto {
 
     @NotEmpty
     private  String CIN;
+    @NotEmpty
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Email
+    @NotEmpty
+    private String email;
+
 
     public String getNom() {
         return nom;

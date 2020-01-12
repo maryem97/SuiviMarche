@@ -19,6 +19,8 @@ public class Employe {
      private  String  prenom;
      private  String CIN;
      private  String role;
+    private String email;
+    private String password;
 
      @ManyToOne
     private Service service;
@@ -31,10 +33,12 @@ public class Employe {
 
      }
 
-    public Employe(String prenom ,String nom,  String cin, String role) {
+    public Employe(String prenom ,String nom,  String cin, String role,String email, String password) {
         this.prenom=prenom;
         this.nom=nom;
         this.CIN=cin;
         this.role=role;
+        this.email = email;
+        this.password = password;
     }
 }

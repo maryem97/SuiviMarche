@@ -32,6 +32,16 @@ public class UserRegistrationDto {
     @Email
     @NotEmpty
     private String confirmEmail;
+    @NotEmpty
+    private  String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     @AssertTrue
     private Boolean terms;

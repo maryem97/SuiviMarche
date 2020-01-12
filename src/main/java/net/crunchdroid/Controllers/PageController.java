@@ -1,13 +1,16 @@
 package net.crunchdroid.Controllers;
 
 import net.crunchdroid.Dto.UserDto;
+import net.crunchdroid.Entities.Service;
 import net.crunchdroid.Entities.User;
+import net.crunchdroid.Services.ServiceService;
 import net.crunchdroid.Services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +21,10 @@ public class PageController {
 
     @Autowired
     UserServiceImpl userService;
+
+    @Autowired
+    ServiceService serviceService;
+
 
 /*
     @GetMapping("/")
@@ -47,6 +54,10 @@ public class PageController {
     @GetMapping("/addUser")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
+        List<Service> all = serviceService.getAll();
+
+        model.addAttribute("listString",all);
+
         return "form-test";
     }
 
@@ -54,6 +65,8 @@ public class PageController {
     public String saveUser(@ModelAttribute("user") UserDto model) {
 
         userService.addUser(model);
+        String dropDownItem = model.getDropDownItem();
+        System.out.println(dropDownItem);
         return "redirect:/getAll";
     }
 

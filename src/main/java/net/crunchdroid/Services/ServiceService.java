@@ -18,12 +18,17 @@ public class ServiceService {
     @Autowired
     EntrepriseService entrepriseService;
 
+
     public void saveService(ServiceDto serviceDto) throws Exception {
         Long idEntreprise= serviceDto.getIdEntreprise();
         Entreprise entrepriseById =entrepriseService.getEntrepriseById(idEntreprise);
         serviceRepository.save(new net.crunchdroid.Entities.Service(serviceDto.getNameService(),entrepriseById));
 
 
+    }
+
+    public List<net.crunchdroid.Entities.Service> getAll(){
+        return serviceRepository.findAll();
     }
 
     public List<net.crunchdroid.Entities.Service> getAll(Optional<Long> id) throws Exception {

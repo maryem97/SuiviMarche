@@ -62,6 +62,8 @@
                                         <th class="column-title">Nom </th>
                                         <th class="column-title">CIN </th>
                                         <th class="column-title">Role </th>
+                                        <th class="column-title">Email </th>
+                                        <th class="column-title no-link last"><span class="nobr">Action</span>
                                         </th>
                                     </tr>
                                     </thead>
@@ -72,6 +74,18 @@
                                         <td class=" " th:text="${employe.nom}">Nom</td>
                                         <td class=" " th:text="${employe.CIN}">CIN </td>
                                         <td class=" " th:text="${employe.role}">Role </td>
+                                        <td class=" " th:text="${employe.email}">Email </td>
+                                        <td class=" last" >
+                                            <a style="color:#00F; "th:href="@{'/employe/edit/' + ${employe.id}}"
+                                               onmouseover="this.style.color='#0F0'"
+                                               onmouseout="this.style.color='#00F'">Edit</a>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <a  th:href="@{'/employe/delete/' + ${employe.id}}" style="color:#00F;"
+                                                onmouseover="this.style.color='#FF0000'"
+                                                onmouseout="this.style.color='#00F'">Delete Employe
+                                            </a>
+
+                                        </td>
 
 
                                     </tr>

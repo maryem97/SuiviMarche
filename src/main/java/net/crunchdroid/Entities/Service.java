@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
+
 public class Service {
     @Id
     @GeneratedValue
@@ -23,6 +23,9 @@ public class Service {
     @OneToMany
     List<Employe> employeList;
 
+    public Service(){
+
+    }
     public Service(String name, Entreprise entreprise) {
         this.name = name;
         this.entreprise = entreprise;

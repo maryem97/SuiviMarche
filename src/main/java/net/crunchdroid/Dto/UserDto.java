@@ -11,6 +11,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
+    private String dropDownItem;
     @NotEmpty
     private String firstName;
 
@@ -27,7 +28,17 @@ public class UserDto {
     @NotEmpty
     private String email;
 
-    /*@Email
+    @NotEmpty
+    private  String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+/*@Email
     @NotEmpty
     private String confirmEmail;*/
 

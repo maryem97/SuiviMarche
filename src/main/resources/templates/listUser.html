@@ -60,6 +60,8 @@
 
                                                 <th class="column-title">First Name </th>
                                                 <th class="column-title">Last Name </th>
+                                                <th class="column-title">Email</th>
+                                                <th class="column-title">Role </th>
                                                 <th class="column-title no-link last"><span class="nobr">Action</span>
                                                 </th>
                                             </tr>
@@ -70,6 +72,8 @@
 
                                                 <td class=" " th:text="${user.lastName}">last Name</td>
                                                 <td class=" " th:text="${user.firstName}">first Name </td>
+                                                <td class=" " th:text="${user.email}">Email </td>
+                                                <td class=" " th:text="${user.role}">Role</td>
                                                 <td class=" last" >
                                                     <a style="color:#00F; "th:href="@{'/edit/' + ${user.id}}"
                                                        onmouseover="this.style.color='#0F0'"
