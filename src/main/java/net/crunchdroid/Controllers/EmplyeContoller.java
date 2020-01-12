@@ -37,7 +37,7 @@ public class EmplyeContoller {
     public String getAll(Model model){
         List<Employe> listEmploye = employeService.getAll();
         model.addAttribute("listEmploye", listEmploye);
-        return "Employe/listEmploye";
+        return "Employe/Employes";
     }
 
 }
