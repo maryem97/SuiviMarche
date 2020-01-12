@@ -20,5 +20,8 @@ public class Commentaire {
     private Employe employe;
     @ManyToOne
     private Projet projet;
+    @ManyToOne
+    private Tache tache;
+    
 
 }

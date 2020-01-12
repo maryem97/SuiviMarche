@@ -28,6 +28,8 @@ public class Employe {
     List<Commentaire> commentaireList;
      @ManyToOne
     private Projet projet;
+     @ManyToMany
+     List<Tache> tacheList;
 
      public Employe(){
 
