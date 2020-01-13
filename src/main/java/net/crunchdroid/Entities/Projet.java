@@ -17,7 +17,7 @@ public class Projet {
 
     private String name;
     private String pathCahierCharge;
-    private String valider;
+    private String etatProjet;
     private float budget;
     @OneToMany
     List<Employe> employeList;
