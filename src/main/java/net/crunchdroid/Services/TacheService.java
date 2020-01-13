@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TacheService {
@@ -34,7 +35,7 @@ public class TacheService {
         return tacheRepository.save(tache);
     }
 
-   /* public Tache getTacheById(Long id) throws Exception{
+    public Tache getTacheById(Long id) throws Exception{
         Optional<Tache> tache= tacheRepository.findById(id);
         if(!tache.isPresent()) throw new Exception("We don't have any tache with this id");
         return tache.get();
@@ -56,5 +57,6 @@ public class TacheService {
     public void deleteTache(Long id) {
         tacheRepository.deleteById(id);
     }
-    */
+
+
 }

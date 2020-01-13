@@ -58,6 +58,15 @@
                                                     <li>
                                                         <p>
                                                             <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+
+                                                            <a  th:href="@{'/tache/delete/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                                onmouseover="this.style.color='#FF0000'"
+                                                                onmouseout="this.style.color='#00F'">Delete
+                                                            </a>
+                                                            <a style="float: right; color:#00F; "th:href="@{'/tache/edit/' + ${tache.id}}"
+                                                               onmouseover="this.style.color='#0F0'"
+                                                               onmouseout="this.style.color='#00F'">Edit</a>
+                                                            &nbsp;&nbsp;&nbsp;
                                                         </p>
                                                     </li>
 
@@ -100,6 +109,13 @@
                                             <li>
                                                 <p>
                                                     <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+                                                    <a  th:href="@{'/tache/delete/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                        onmouseover="this.style.color='#FF0000'"
+                                                        onmouseout="this.style.color='#00F'">Delete
+                                                    </a>
+                                                    <a style="float: right; color:#00F; "th:href="@{'/tache/edit/' + ${tache.id}}"
+                                                       onmouseover="this.style.color='#0F0'"
+                                                       onmouseout="this.style.color='#00F'">Edit</a>
                                                 </p>
                                             </li>
 
@@ -143,6 +159,13 @@
                                             <li>
                                                 <p>
                                                     <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+                                                    <a  th:href="@{'/tache/delete/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                        onmouseover="this.style.color='#FF0000'"
+                                                        onmouseout="this.style.color='#00F'">Delete
+                                                    </a>
+                                                    <a style="float: right; color:#00F; "th:href="@{'/tache/edit/' + ${tache.id}}"
+                                                       onmouseover="this.style.color='#0F0'"
+                                                       onmouseout="this.style.color='#00F'">Edit</a>
                                                 </p>
                                             </li>
 

@@ -17,6 +17,9 @@ public class Service {
     private String name;
 
     @ManyToOne
+    private User chefService;
+
+    @ManyToOne
     private Entreprise entreprise;
     @OneToMany
     List<Projet> projetList;

@@ -7,6 +7,7 @@ import net.crunchdroid.Entities.Employe;
 import net.crunchdroid.Entities.Role;
 import net.crunchdroid.Entities.User;
 import net.crunchdroid.Repositories.EmployeRepository;
+import net.crunchdroid.Repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,16 @@ public class EmployeService {
     @Autowired
     EmployeRepository employeRepository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     public boolean addEmploye(EmployeDto employe){
-        employeRepository.save(new Employe(employe.getPrenom(),employe.getNom(),employe.getCIN(),employe.getRole(),employe.getEmail(),employe.getPassword()));
+       Employe em= new Employe(employe.getPrenom(),employe.getNom(),employe.getCIN(),employe.getRole(),employe.getEmail(),employe.getPassword());
+       //create emp with role//
+        //todo changer l role l Role pas String
+       // em.setRole(roleRepository.getOne(1L));
+        //lier emplooyer l entreprise
+       employeRepository.save(em);
         return true;
     }
     public List<Employe> getAll(){
@@ -71,5 +80,13 @@ public class EmployeService {
 
     public void deleteEmploye(Long id) {
         employeRepository.deleteById(id);
+    }
+
+    public void addDirecteur(EmployeDto model) {
+        //meme pricipe sera pour celui la
+    }
+
+    public void addChefService(EmployeDto model) {
+        //meme sera pour celui la
     }
 }

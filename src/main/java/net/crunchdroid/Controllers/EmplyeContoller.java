@@ -78,4 +78,29 @@ public class EmplyeContoller {
         return "redirect:/employe/getAll";
     }
 
+
+    @PostMapping("/addDirecteur")
+    public String saveDirecteur(@ModelAttribute("employe") EmployeDto model) {
+        employeService.addDirecteur(model);
+        String dropDownItem = model.getDropDownItem();
+        System.out.println(dropDownItem);
+        return "redirect:/employe/getAll";
+    }
+
+    @PostMapping("/addChefService")
+    public String saveChefService(@ModelAttribute("employe") EmployeDto model) {
+        employeService.addChefService(model);
+        String dropDownItem = model.getDropDownItem();
+        System.out.println(dropDownItem);
+        return "redirect:/employe/getAll";
+    }
+//il faut que vous relger tout ca
+    /*7
+   associer f création les choes entre elle
+   laisser soit talble  emploer soit table user
+   ajouter boutoon cration user et jouer avec les roles
+   ensuite
+   stp vous travaillez ca d'ici sbah et après je traite avec toi l partie tache et authorization
+   est ce
+     */
 }

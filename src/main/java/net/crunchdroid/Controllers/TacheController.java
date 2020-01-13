@@ -48,7 +48,7 @@ public class TacheController {
         return "Tache/listTache";
     }
 
-    /*@RequestMapping("/updateTache/{id}")
+    @RequestMapping("/updateTache/{id}")
     public String updateTache(@PathVariable("id") Long id,@ModelAttribute("tache") TacheDto model){
         tacheService.updateTache(id,model);
         return "redirect:/Tache/getAll";
@@ -59,6 +59,7 @@ public class TacheController {
         Tache tache=  tacheService.getTacheById(id);
         model.addAttribute("tache",tache);
 
+
         return "/Tache/editTache";
     }
 
@@ -66,7 +67,7 @@ public class TacheController {
     public String deleteTache(@PathVariable("id") Long id){
         tacheService.deleteTache(id);
         return "redirect:/tache/getAll";
-    }*/
+    }
 
 
 }
