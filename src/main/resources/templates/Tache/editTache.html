@@ -164,6 +164,17 @@
                                                             </select>
                                                         </div>
                                                     </div>
+                                                    <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Status<span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 ">
+                                                            <select th:field="*{etatTache}" >
+                                                                <option th:each="etat : ${listEtat}"
+                                                                        th:value="${etat}"
+                                                                        th:text="${etat}" />
+                                                            </select>
+                                                        </div>
+                                                    </div>
 
 
                                                     <div class="ln_solid"></div>

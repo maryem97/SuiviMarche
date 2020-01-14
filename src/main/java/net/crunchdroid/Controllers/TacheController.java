@@ -67,7 +67,10 @@ public class TacheController {
 
         List<Projet> projets = projetService.getAll();
         model.addAttribute("listProjet",projets);
-
+        List<String> etat = new ArrayList<>();
+        etat.add("Valide");
+        etat.add("Invalide");
+        model.addAttribute("listEtat",etat);
 
         return "/Tache/editTache";
     }
