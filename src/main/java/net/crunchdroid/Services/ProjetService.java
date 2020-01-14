@@ -28,7 +28,7 @@ public class ProjetService {
     }
 
     public boolean addProjet(PojetDto projet){
-        projetRepository.save(new Projet(projet.getName(),projet.getService(),projet.getBudget()));
+        projetRepository.save(new Projet(projet.getName(),projet.getService(),projet.getBudget(),projet.getEtatProjet()));
         return true;
     }
 
@@ -39,6 +39,7 @@ public class ProjetService {
         //projet.getEmployeList(registration.getEmployeList());
         projet.setService(registration.getService());
         projet.setBudget(registration.getBudget());
+        projet.setEtatProjet(registration.getEtatProjet());
         return projetRepository.save(projet);
     }
 
@@ -52,9 +53,10 @@ public class ProjetService {
     public boolean updateProjet(Long id,PojetDto model) {
         Optional<Projet> byId = projetRepository.findById(id);
         byId.get().setName(model.getName());
-        byId.get().setEmployeList(model.getEmployeList());
+        //byId.get().setEmployeList(model.getEmployeList());
         byId.get().setService(model.getService());
         byId.get().setBudget(model.getBudget());
+        byId.get().setEtatProjet(model.getEtatProjet());
         projetRepository.save(byId.get());
         return true;
     }

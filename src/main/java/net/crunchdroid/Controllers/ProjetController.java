@@ -65,7 +65,16 @@ public class ProjetController {
         Projet projet=  projetService.getProjetById(id);
         model.addAttribute("projet",projet);
 
-        return "Projet/editProjet";
+        List<Service> all = serviceService.getAll();
+        model.addAttribute("listService",all);
+
+        List<User> allEmploye = userService.getAll();
+        model.addAttribute("listEmploye",allEmploye);
+        List<String> etat = new ArrayList<>();
+        etat.add("Valide");
+        etat.add("Invalide");
+        model.addAttribute("listEtat",etat);
+    return "Projet/editProjet";
     }
 
     @GetMapping("/delete/{id}")

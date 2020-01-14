@@ -1,8 +1,11 @@
 package net.crunchdroid.Controllers;
 
 import net.crunchdroid.Dto.UserDto;
+import net.crunchdroid.Entities.Entreprise;
 import net.crunchdroid.Entities.Service;
 import net.crunchdroid.Entities.User;
+import net.crunchdroid.Repositories.EntrepriseRepository;
+import net.crunchdroid.Services.EntrepriseService;
 import net.crunchdroid.Services.ServiceService;
 import net.crunchdroid.Services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,9 @@ public class PageController {
 
     @Autowired
     ServiceService serviceService;
+
+    @Autowired
+    EntrepriseService entrepriseService;
 
 
 /*
@@ -55,8 +61,19 @@ public class PageController {
     public String addUser(Model model) {
         model.addAttribute("user", new UserDto());
         List<Service> all = serviceService.getAll();
-
         model.addAttribute("listString",all);
+
+
+        List<Entreprise> allEntreprise = entrepriseService.getAll();
+        model.addAttribute("listEntreprise",allEntreprise);
+
+        List<String> role = new ArrayList<>();
+        role.add("Directeur");
+        role.add("Chef Service");
+        role.add("Employe");
+        model.addAttribute("listRole",role);
+
+
 
         return "form-test";
     }

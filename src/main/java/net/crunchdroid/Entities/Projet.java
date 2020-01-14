@@ -31,11 +31,12 @@ public class Projet {
     @ManyToOne
     private Service service;
 
-    public Projet(String name,Service service,float budget) {
+    public Projet(String name,Service service,float budget,String etatProjet) {
         this.name=name;
        // this.employeList=employeList;
         this.service=service;
         this.budget=budget;
+        this.etatProjet=etatProjet;
 
     }
 
