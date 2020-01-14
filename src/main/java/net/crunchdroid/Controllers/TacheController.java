@@ -58,6 +58,15 @@ public class TacheController {
     public String editTache(@PathVariable("id") Long id,Model model) throws Exception{
         Tache tache=  tacheService.getTacheById(id);
         model.addAttribute("tache",tache);
+        //model.addAttribute("tache", new TacheDto());
+        List<String> status = new ArrayList<>();
+        status.add("To Do");
+        status.add("En Cours");
+        status.add("Terminé");
+        model.addAttribute("listStatus",status);
+
+        List<Projet> projets = projetService.getAll();
+        model.addAttribute("listProjet",projets);
 
 
         return "/Tache/editTache";
