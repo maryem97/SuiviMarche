@@ -146,6 +146,18 @@
                                                             <input type="text" id="budget" required="required" class="form-control "
                                                                    th:field="*{budget}">
                                                         </div>
+
+                                                    </div>
+
+                                                    <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="etat" ><span class="required"></span>
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 ">
+                                                            <div th:field="*{etatProjet}">
+                                                            <input type="hidden" th:each="etat: ${listetat}" th:value="${etat}"  name="etat" id="etat">
+                                                            </div>
+                                                        </div>
+
                                                     </div>
 
 
