@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en" data-layout-decorate="~{fragments/layout}"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Plain Page</title>
 </head>
@@ -10,22 +10,36 @@
 <body>
 <div class="right_col" role="main" data-layout-fragment="content">
     <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Ajouter Une Entreprise</h3>
+            </div>
 
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
 
-                    <div class="x_content">
+                    <br class="x_content">
                         <!-- page content -->
-                        <div class="right_col" role="main">
-                            <div class="">
+
 
                                 <div class="clearfix"></div>
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 ">
                                         <div class="x_panel">
                                             <div class="x_title">
-                                                <h2>Form Design <small>different form elements</small></h2>
+                                                <small>ajouter l'entreprise</small></h2>
                                                 <ul class="nav navbar-right panel_toolbox">
                                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                                     </li>
@@ -56,14 +70,21 @@
                                                             <input type="text" id="name-Entreprise" required="required" class="form-control "
                                                                    th:field="*{name}">
 
-                                                            <div >
-                                                                <select th:field="*{dropDownItem}">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" >Directeur<span class="required">*</span>
+                                                        </label>
+
+                                                            <div  class="col-md-6 col-sm-6 ">
+                                                                <select th:field="*{dropDownItem}" class="form-control ">
                                                                     <option th:each="dropDownItem : ${listString}"
                                                                             th:value="${dropDownItem.id}"
                                                                             th:text="${dropDownItem.lastName}" />
                                                                 </select>
                                                             </div>
-                                                        </div>
+
                                                     </div>
 
 
@@ -81,15 +102,20 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 </body>
+</div>
+</br>
+</br></br></br></br></br></br>  </br>
+</br>
+</br></br></br></br></br></br>  </br></br>
+</br></br></br></br></br></br>  </br>
 </html>
 
 
