@@ -118,12 +118,15 @@
                                                         </div>
                                                     </div>
                                                    <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="role">Role <span class="required">*</span>
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" >Role <span class="required">*</span>
                                                         </label>
-                                                        <div class="col-md-6 col-sm-6 ">
-                                                            <input type="text" id="role" name="role" required="required" class="form-control"
-                                                                   th:field="*{role}">
-                                                        </div>
+                                                       <div>
+                                                           <select th:field="*{role}" >
+                                                               <option th:each="role : ${listRole}"
+                                                                       th:value="${role}"
+                                                                       th:text="${role}" />
+                                                           </select>
+                                                       </div>
                                                     </div>
 
                                                     <div class="item form-group">
@@ -147,13 +150,25 @@
                                                     </div>
 
                                                     <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align"  >Entreprise <span class="required">*</span>
+                                                        </label>
+                                                        <div>
+                                                            <select th:field="*{entreprise}" >
+                                                                <option th:each="entreprise : ${listEntreprise}"
+                                                                        th:value="${entreprise.id}"
+                                                                        th:text="${entreprise.name}" />
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item form-group">
                                                         <label class="col-form-label col-md-3 col-sm-3 label-align"  >Service <span class="required">*</span>
                                                         </label>
                                                         <div>
-                                                            <select th:field="*{dropDownItem}" >
-                                                                <option th:each="dropDownItem : ${listString}"
-                                                                        th:value="${dropDownItem.id}"
-                                                                        th:text="${dropDownItem.name}" />
+                                                            <select th:field="*{service}" >
+                                                                <option th:each="service : ${listString}"
+                                                                        th:value="${service.id}"
+                                                                        th:text="${service.name}" />
                                                             </select>
                                                         </div>
                                                     </div>

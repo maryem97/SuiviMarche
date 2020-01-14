@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService{
 
 
     public boolean addUser(UserDto user){
-        userRepository.save(new User(user.getLastName(),user.getFirstName(),user.getEmail(),user.getPassword(),user.getRole()));
+        userRepository.save(new User(user.getLastName(),user.getFirstName(),user.getEmail(),user.getPassword(),user.getRole(),user.getEntreprise(),user.getService()));
         return true;
     }
 
@@ -79,6 +79,8 @@ public class UserServiceImpl implements UserService{
         user.setLastName(registration.getLastName());
         user.setEmail(registration.getEmail());
         user.setRole(registration.getRole());
+        user.setService(registration.getService());
+        user.setEntreprise(registration.getEntreprise());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
 
         user.setRoles(Arrays.asList(roleRepository.getOne((long) 1)));

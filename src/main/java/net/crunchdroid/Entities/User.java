@@ -39,12 +39,14 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String password,String role) {
+    public User(String firstName, String lastName, String email, String password,String role,Entreprise entreprise,Service service) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.role=role;
+        this.entreprise=entreprise;
+        this.service=service;
     }
 
     @OneToOne
