@@ -53,7 +53,7 @@ public class PageController {
 
     @GetMapping("/addUser")
     public String addUser(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new UserDto());
         List<Service> all = serviceService.getAll();
 
         model.addAttribute("listString",all);

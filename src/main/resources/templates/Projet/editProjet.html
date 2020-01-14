@@ -98,65 +98,61 @@
                                             <div class="x_content">
                                                 <br />
                                                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
-                                                       th:action="@{/saveUser}" th:object="${user}"
+                                                      th:action="@{'/projet/updateProjet/' + ${projet.id}}" th:object="${projet}"
                                                       method="post">
 
                                                     <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required">*</span>
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="nom">Nom de Projet<span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 ">
-                                                            <input type="text" id="first-name" required="required" class="form-control "
-                                                                   th:field="*{firstName}">
-                                                        </div>
-                                                    </div>
-                                                    <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Last Name <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 ">
-                                                            <input type="text" id="last-name" name="last-name" required="required" class="form-control"
-                                                                   th:field="*{lastName}">
-                                                        </div>
-                                                    </div>
-                                                   <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="role">Role <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 ">
-                                                            <input type="text" id="role" name="role" required="required" class="form-control"
-                                                                   th:field="*{role}">
+                                                            <input type="text" id="nom" required="required" class="form-control "
+                                                                   th:field="*{name}">
                                                         </div>
                                                     </div>
 
                                                     <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="email">Email <span class="required">*</span>
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Membres <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 ">
-                                                            <input type="email" id="email" name="email" required="required" class="form-control"
-                                                                   th:field="*{email}">
+                                                            <select th:field="*{employeList}">
+                                                                <option th:each="employeList : ${listEmploye}" type="checkbox"  th:value="${employeList.id}"
+                                                                        th:text="${employeList.lastName+' '+employeList.firstName}">
+                                                                    <input type="checkbox" th:value="${employeList.id}"
+                                                                           th:text="${employeList.lastName+' '+employeList.firstName}" >
+                                                                </option>
+                                                            </select>
                                                         </div>
+
                                                     </div>
 
 
-
                                                     <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password <span class="required">*</span>
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Service <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 ">
-                                                            <input type="password" id="password" name="password"  required="required" class="form-control"
-                                                                   th:field="*{password}">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align"  >Service <span class="required">*</span>
-                                                        </label>
-                                                        <div>
-                                                            <select th:field="*{dropDownItem}" >
-                                                                <option th:each="dropDownItem : ${listString}"
-                                                                        th:value="${dropDownItem.id}"
-                                                                        th:text="${dropDownItem.name}" />
+                                                            <select th:field="*{service}" >
+                                                                <option th:each="service : ${listService}"
+                                                                        th:value="${service.id}"
+                                                                        th:text="${service.name}" />
                                                             </select>
                                                         </div>
                                                     </div>
+
+
+                                                    <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="budget">Budget<span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 ">
+                                                            <input type="text" id="budget" required="required" class="form-control "
+                                                                   th:field="*{budget}">
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
 
                                                     <div class="ln_solid"></div>
                                                     <div class="item form-group">
