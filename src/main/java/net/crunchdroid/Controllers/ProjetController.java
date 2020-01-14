@@ -44,10 +44,6 @@ public class ProjetController {
         List<User> allEmploye = userService.getAll();
         model.addAttribute("listEmploye",allEmploye);
 
-        List<String> etat = new ArrayList<>();
-        etat.add("no validate");
-        model.addAttribute("listetat",etat);
-
         return "Projet/Add_Projet";
     }
 
@@ -75,8 +71,10 @@ public class ProjetController {
         List<User> allEmploye = userService.getAll();
         model.addAttribute("listEmploye",allEmploye);
         List<String> etat = new ArrayList<>();
-
-        return "Projet/editProjet";
+        etat.add("Valide");
+        etat.add("Invalide");
+        model.addAttribute("listEtat",etat);
+    return "Projet/editProjet";
     }
 
     @GetMapping("/delete/{id}")
