@@ -44,6 +44,10 @@ public class ProjetController {
         List<User> allEmploye = userService.getAll();
         model.addAttribute("listEmploye",allEmploye);
 
+        List<String> etat = new ArrayList<>();
+        etat.add("no validate");
+        model.addAttribute("listetat",etat);
+
         return "Projet/Add_Projet";
     }
 
@@ -64,6 +68,13 @@ public class ProjetController {
     public String editProjet(@PathVariable("id") Long id,Model model) throws Exception{
         Projet projet=  projetService.getProjetById(id);
         model.addAttribute("projet",projet);
+
+        List<Service> all = serviceService.getAll();
+        model.addAttribute("listService",all);
+
+        List<User> allEmploye = userService.getAll();
+        model.addAttribute("listEmploye",allEmploye);
+        List<String> etat = new ArrayList<>();
 
         return "Projet/editProjet";
     }

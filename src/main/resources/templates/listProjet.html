@@ -82,7 +82,7 @@
                                             <td class=" " ><div th:each="service : ${projet.service}"><span th:text="${service.name}"></span></div></td>
                                             <td><div th:text="${projet.budget+' DH'}"></div></td>
                                             <td>
-                                                <button type="button" class="btn btn-success btn-xs">Success</button>
+                                                <button type="button" class="btn btn-success btn-xs" th:text="${projet.etatProjet}"></button>
                                             </td>
                                             <td class=" last">
                                                 <a th:href="@{'/tache/getAll'}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View Task </a>
