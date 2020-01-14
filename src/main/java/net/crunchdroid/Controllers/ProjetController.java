@@ -75,9 +75,6 @@ public class ProjetController {
         List<User> allEmploye = userService.getAll();
         model.addAttribute("listEmploye",allEmploye);
         List<String> etat = new ArrayList<>();
-        etat.add("Validate");
-        etat.add("no validate");
-        model.addAttribute("listEtat",etat);
 
         return "Projet/editProjet";
     }
