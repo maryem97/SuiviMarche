@@ -15,6 +15,14 @@ public class Commentaire {
     @Id
     @GeneratedValue
     private long id;
+    private String addComment;
+
+    public Commentaire(String addComment, Employe employe, Projet projet, Tache tache) {
+        this.addComment = addComment;
+        this.employe = employe;
+        this.projet = projet;
+        this.tache = tache;
+    }
 
     @ManyToOne
     private Employe employe;

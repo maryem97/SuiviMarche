@@ -3,10 +3,13 @@ package net.crunchdroid.Dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.crunchdroid.Entities.Commentaire;
 import net.crunchdroid.Entities.Projet;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -33,10 +36,17 @@ public class TacheDto {
 
     @NotEmpty
     private String etatTache;
+    @OneToMany
+    List<Commentaire> commentaireList;
 
+    public List<Commentaire> getCommentaireList() {
+        return commentaireList;
+    }
 
-
-    //getters
+    public void setCommentaireList(List<Commentaire> commentaireList) {
+        this.commentaireList = commentaireList;
+    }
+//getters
 
     public String getNumero() {
         return numero;

@@ -32,6 +32,7 @@ public class TacheService {
         tache.setDateDebutRealisation(registration.getDateFinaleRealisation());
         tache.setStatus(registration.getStatus());
         tache.setEtatTache(registration.getEtatTache());
+
         return tacheRepository.save(tache);
     }
 

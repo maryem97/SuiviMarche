@@ -10,7 +10,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Plain Page</h3>
+                <h3>Liste Des Tâches</h3>
             </div>
 
             <div class="title_right">
@@ -58,6 +58,14 @@
                                                     <li>
                                                         <p>
                                                             <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+                                                            <a  th:href="@{'/commentaire/addCommentaire/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                                onmouseover="this.style.color='#FF0000'"
+                                                                onmouseout="this.style.color='#00F'">Add Comment
+                                                            </a>
+                                                            <a  th:href="@{'/commentaire/getAll/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                                onmouseover="this.style.color='#FF0000'"
+                                                                onmouseout="this.style.color='#00F'">View Comments
+                                                            </a>
 
                                                             <a  th:href="@{'/tache/delete/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
                                                                 onmouseover="this.style.color='#FF0000'"
@@ -109,6 +117,15 @@
                                             <li>
                                                 <p>
                                                     <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+                                                    <a  th:href="@{'/commentaire/addCommentaire/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                        onmouseover="this.style.color='#FF0000'"
+                                                        onmouseout="this.style.color='#00F'">Add Comment
+                                                    </a>
+                                                    <a  th:href="@{'/commentaire/getAll/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                        onmouseover="this.style.color='#FF0000'"
+                                                        onmouseout="this.style.color='#00F'">View Comments
+                                                    </a>
+
                                                     <a  th:href="@{'/tache/delete/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
                                                         onmouseover="this.style.color='#FF0000'"
                                                         onmouseout="this.style.color='#00F'">Delete
@@ -159,6 +176,15 @@
                                             <li>
                                                 <p>
                                                     <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+                                                    <a  th:href="@{'/commentaire/addCommentaire/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                        onmouseover="this.style.color='#FF0000'"
+                                                        onmouseout="this.style.color='#00F'">Add Comment
+                                                    </a>
+                                                    <a  th:href="@{'/commentaire/getAll/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
+                                                        onmouseover="this.style.color='#FF0000'"
+                                                        onmouseout="this.style.color='#00F'">View Comments
+                                                    </a>
+
                                                     <a  th:href="@{'/tache/delete/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
                                                         onmouseover="this.style.color='#FF0000'"
                                                         onmouseout="this.style.color='#00F'">Delete
