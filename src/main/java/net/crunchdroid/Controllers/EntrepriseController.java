@@ -33,14 +33,7 @@ public class EntrepriseController {
     public String createEntreprise(Model model){
         model.addAttribute("entreprise",new EntrepriseDto());
         List<User> all = userService.getAll();
-        List<String> nameUsers=new ArrayList<>();
-        nameUsers.add("string1");
-        nameUsers.add("string2");
-        nameUsers.add("string3");
-        nameUsers.add("string4");
-        nameUsers.add("string5");
-        nameUsers.add("string6");
-        nameUsers.add("string7");
+
 
         model.addAttribute("listString",all);
         return "Entreprise/add_Entreprise";

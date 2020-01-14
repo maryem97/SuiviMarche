@@ -32,7 +32,7 @@ public class UserRegistrationDto {
     @Email
     @NotEmpty
     private String confirmEmail;
-    @NotEmpty
+
     private  String role;
 
     public String getRole() {

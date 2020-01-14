@@ -1,8 +1,6 @@
 package net.crunchdroid.Controllers;
 
-
-import net.crunchdroid.Dto.EntrepriseDto;
-import net.crunchdroid.Dto.ServiceDto;
+import net.crunchdroid.Dto.TacheDto;
 import net.crunchdroid.Entities.*;
 import net.crunchdroid.Services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +17,56 @@ public class TacheController {
 
     @Autowired //Injection de dépendances
             TacheService tacheService;
+    @Autowired
+    ProjetService projetService;
 
+    @GetMapping("/addTache")
+    public String addTache(Model model) {
+        model.addAttribute("tache", new TacheDto());
+        List<String> status = new ArrayList<>();
+        status.add("To Do");
+        status.add("En Cours");
+        status.add("Terminé");
+        model.addAttribute("listStatus",status);
+
+        List<Projet> projets = projetService.getAll();
+        model.addAttribute("listProjet",projets);
+
+        return "Tache/addTache";
+    }
+
+    @PostMapping("/saveTache")
+    public String saveTache(@ModelAttribute("tache") TacheDto model) {
+        tacheService.addTache(model);
+        return "redirect:/tache/getAll";
+    }
 
     @GetMapping("/getAll")
     public String getAll(Model model){
         List<Tache> listTache = tacheService.getAll();
         model.addAttribute("listTache", listTache);
-        return "listTache";
+        return "Tache/listTache";
+    }
+
+    @RequestMapping("/updateTache/{id}")
+    public String updateTache(@PathVariable("id") Long id,@ModelAttribute("tache") TacheDto model){
+        tacheService.updateTache(id,model);
+        return "redirect:/Tache/getAll";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editTache(@PathVariable("id") Long id,Model model) throws Exception{
+        Tache tache=  tacheService.getTacheById(id);
+        model.addAttribute("tache",tache);
+
+
+        return "/Tache/editTache";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteTache(@PathVariable("id") Long id){
+        tacheService.deleteTache(id);
+        return "redirect:/tache/getAll";
     }
 
 

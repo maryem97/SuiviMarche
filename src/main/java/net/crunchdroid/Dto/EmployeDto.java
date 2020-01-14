@@ -3,7 +3,10 @@ package net.crunchdroid.Dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.crunchdroid.Entities.Entreprise;
 
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
@@ -22,6 +25,10 @@ public class EmployeDto {
     private  String CIN;
     @NotEmpty
     private String password;
+    //f la création de l'utilisateur il faut spécificer avec quel entreprise est liée
+
+    private long idEntreprise;
+
 
     public String getPassword() {
         return password;

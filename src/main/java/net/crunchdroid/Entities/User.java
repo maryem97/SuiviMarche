@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,6 +19,8 @@ public class User {
     private String email;
     private String password;
     private  String role;
+    private  String CIN;
+
 
     public User(String lastName, String firstName) {
         this.lastName = lastName;
@@ -43,4 +46,18 @@ public class User {
         this.password = password;
         this.role=role;
     }
+
+    @OneToOne
+    Entreprise entreprise;
+
+    @ManyToOne
+    private Service service;
+    @OneToMany
+    List<Commentaire> commentaireList;
+    @ManyToOne
+    private Projet projet;
+    @ManyToMany
+    List<Tache> tacheList;
+
+
 }

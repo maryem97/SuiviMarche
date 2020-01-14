@@ -21,6 +21,11 @@ public class Employe {
      private  String role;
     private String email;
     private String password;
+    //vous utilisez seulement user ou employe   todo
+
+
+    @OneToOne
+    Entreprise entreprise;
 
      @ManyToOne
     private Service service;
@@ -28,6 +33,8 @@ public class Employe {
     List<Commentaire> commentaireList;
      @ManyToOne
     private Projet projet;
+     @ManyToMany
+     List<Tache> tacheList;
 
      public Employe(){
 

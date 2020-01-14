@@ -28,7 +28,7 @@ public class ProjetService {
     }
 
     public boolean addProjet(PojetDto projet){
-        projetRepository.save(new Projet(projet.getName(),projet.getEmployeList(),projet.getService(),projet.getBudget()));
+        projetRepository.save(new Projet(projet.getName(),projet.getService(),projet.getBudget()));
         return true;
     }
 
@@ -36,7 +36,7 @@ public class ProjetService {
     public Projet save(PojetDto registration){
         Projet projet=new Projet();
         projet.setName(registration.getName());
-        projet.getEmployeList(registration.getEmployeList());
+        //projet.getEmployeList(registration.getEmployeList());
         projet.setService(registration.getService());
         projet.setBudget(registration.getBudget());
         return projetRepository.save(projet);

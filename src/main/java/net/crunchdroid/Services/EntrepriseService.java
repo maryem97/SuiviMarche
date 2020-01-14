@@ -3,7 +3,9 @@ package net.crunchdroid.Services;
 
 import net.crunchdroid.Dto.EntrepriseDto;
 import net.crunchdroid.Entities.Entreprise;
+import net.crunchdroid.Entities.User;
 import net.crunchdroid.Repositories.EntrepriseRepository;
+import net.crunchdroid.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +17,16 @@ public class EntrepriseService {
     @Autowired
     EntrepriseRepository entrepriseRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     public boolean addEntreprise(EntrepriseDto entrepriseDto) {
         Entreprise entreprise=new Entreprise();
         entreprise.setName(entrepriseDto.getName());
+        String iduser=entrepriseDto.getDropDownItem();
+        int i = Integer.parseInt(iduser);
+        Optional<User> user= userRepository.findById((long) i);
+        entreprise.setDirecteur(user.get());
         entrepriseRepository.save(entreprise);
         return true;
     }

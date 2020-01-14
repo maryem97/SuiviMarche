@@ -31,9 +31,9 @@ public class Projet {
     @ManyToOne
     private Service service;
 
-    public Projet(String name, List<User> employeList,Service service,float budget) {
+    public Projet(String name,Service service,float budget) {
         this.name=name;
-        this.employeList=employeList;
+       // this.employeList=employeList;
         this.service=service;
         this.budget=budget;
 
@@ -44,4 +44,8 @@ public class Projet {
     }
 
 
+    public void getEmployeList(List<User> employeList) {
+        this.employeList=employeList;
+
+    }
 }

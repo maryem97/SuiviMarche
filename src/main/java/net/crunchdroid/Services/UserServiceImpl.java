@@ -4,6 +4,7 @@ import net.crunchdroid.Dto.UserDto;
 import net.crunchdroid.Dto.UserRegistrationDto;
 import net.crunchdroid.Entities.Role;
 import net.crunchdroid.Entities.User;
+import net.crunchdroid.Repositories.RoleRepository;
 import net.crunchdroid.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -65,6 +66,9 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     public User findByEmail(String email){
         return userRepository.findByEmail(email);
     }
@@ -77,7 +81,8 @@ public class UserServiceImpl implements UserService{
         user.setRole(registration.getRole());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
 
-        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+        user.setRoles(Arrays.asList(roleRepository.getOne((long) 1)));
+
 /*
         Optional<Role> byId = roleRepository.findById(1);
         Set<Role> roles = new HashSet<>();
@@ -87,7 +92,10 @@ public class UserServiceImpl implements UserService{
         */
         return userRepository.save(user);
     }
-
+/*
+Le premier user qd il sera créer, je vais changer son role au role Admin
+ensuite
+ */
 
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email);
