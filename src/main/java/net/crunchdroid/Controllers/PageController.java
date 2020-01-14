@@ -82,8 +82,6 @@ public class PageController {
     public String saveUser(@ModelAttribute("user") UserDto model) {
 
         userService.addUser(model);
-        String dropDownItem = model.getDropDownItem();
-        System.out.println(dropDownItem);
         return "redirect:/getAll";
     }
 
