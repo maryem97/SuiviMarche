@@ -24,7 +24,6 @@ public class ServiceController {
 
     @GetMapping("/addService/{id}")
     public String addService(@PathVariable("id") Long idEntreprise, Model model){
-
         model.addAttribute("service",new ServiceDto());
         model.addAttribute("idEntreprise",idEntreprise);
         return "Entreprise/add_Service";
@@ -40,8 +39,6 @@ public class ServiceController {
 
     @PostMapping("/saveService")
     public String saveService(@ModelAttribute("service") ServiceDto serviceDto) throws Exception{
-        System.out.println(serviceDto.getIdEntreprise());
-        System.out.println(serviceDto.getNameService());
         serviceService.saveService(serviceDto);
         return "redirect:/service/getAll";
     }

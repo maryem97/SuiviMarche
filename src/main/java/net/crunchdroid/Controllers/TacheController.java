@@ -57,7 +57,7 @@ public class TacheController {
     @RequestMapping("/updateTache/{id}")
     public String updateTache(@PathVariable("id") Long id,@ModelAttribute("tache") TacheDto model){
         tacheService.updateTache(id,model);
-        return "redirect:/Tache/getAll";
+        return "redirect:/tache/getAll";
     }
 
     @GetMapping("/edit/{id}")
@@ -78,7 +78,7 @@ public class TacheController {
         etat.add("Invalide");
         model.addAttribute("listEtat",etat);
 
-        return "/Tache/editTache";
+        return "/tache/editTache";
     }
 
     @GetMapping("/delete/{id}")
