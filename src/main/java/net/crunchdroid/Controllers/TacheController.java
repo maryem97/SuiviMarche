@@ -20,6 +20,9 @@ public class TacheController {
     @Autowired
     ProjetService projetService;
 
+    @Autowired
+    UserServiceImpl userService;
+
     @GetMapping("/addTache")
     public String addTache(Model model) {
         model.addAttribute("tache", new TacheDto());
@@ -31,6 +34,9 @@ public class TacheController {
 
         List<Projet> projets = projetService.getAll();
         model.addAttribute("listProjet",projets);
+
+        List<User> allEmploye = userService.getAll();
+        model.addAttribute("listEmploye",allEmploye);
 
         return "Tache/addTache";
     }
