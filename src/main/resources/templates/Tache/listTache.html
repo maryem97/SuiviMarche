@@ -58,6 +58,8 @@
                                                     <li>
                                                         <p>
                                                             <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+                                                            <span th:if="${tache.etatTache =='Valide'}" ><span class="fa-li fa fa-check-square" style="float:right;margin-left:3px;" ></span></span>
+
                                                             <a  th:href="@{'/commentaire/addCommentaire/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
                                                                 onmouseover="this.style.color='#FF0000'"
                                                                 onmouseout="this.style.color='#00F'">Add Comment
@@ -74,6 +76,7 @@
                                                             <a style="float: right; color:#00F; "th:href="@{'/tache/edit/' + ${tache.id}}"
                                                                onmouseover="this.style.color='#0F0'"
                                                                onmouseout="this.style.color='#00F'">Edit</a>
+
                                                             &nbsp;&nbsp;&nbsp;
                                                         </p>
                                                     </li>
@@ -117,6 +120,7 @@
                                             <li>
                                                 <p>
                                                     <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+                                                    <span th:if="${tache.etatTache =='Valide'}" ><span class="fa-li fa fa-check-square" style="float:right;margin-left:3px;" ></span></span>
                                                     <a  th:href="@{'/commentaire/addCommentaire/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
                                                         onmouseover="this.style.color='#FF0000'"
                                                         onmouseout="this.style.color='#00F'">Add Comment
@@ -176,6 +180,7 @@
                                             <li>
                                                 <p>
                                                     <input type="checkbox" class="flat" th:text="${tache.nomTache}" th:value="${tache.id}">
+
                                                     <a  th:href="@{'/commentaire/addCommentaire/' + ${tache.id}}" style="float:right; padding-left:10px; color:#00F;"
                                                         onmouseover="this.style.color='#FF0000'"
                                                         onmouseout="this.style.color='#00F'">Add Comment
@@ -192,6 +197,7 @@
                                                     <a style="float: right; color:#00F; "th:href="@{'/tache/edit/' + ${tache.id}}"
                                                        onmouseover="this.style.color='#0F0'"
                                                        onmouseout="this.style.color='#00F'">Edit</a>
+                                                <div th:if="${tache.etatTache =='Valide'}" ><span class="fa-li fa fa-check-square" style="float:right;margin-left:3px;" ></span></div>
                                                 </p>
                                             </li>
 

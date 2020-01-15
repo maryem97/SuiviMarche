@@ -120,6 +120,37 @@
                                                         </div>
                                                     </div>
 
+
+
+
+
+                                                    <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Service <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 ">
+                                                            <select th:field="*{service}" class="form-control " >
+                                                                <option th:each="service : ${listService}"
+                                                                        th:value="${service.id}"
+                                                                        th:text="${service.name}" />
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="item form-group">
+                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="budget">Budget<span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 ">
+                                                            <input type="text" id="budget" required="required" class="form-control "
+                                                                   th:field="*{budget}">
+                                                        </div>
+
+                                                    </div>
+
+
+
+
+
                                                     <div class="item form-group">
                                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Membres <span class="required">*</span>
                                                         </label>
@@ -134,11 +165,11 @@
                                                                     <div th:each="employeList : ${listEmploye}">
                                                                         <br>
                                                                         <br>
-                                                                    <input  type="checkbox"  th:value="${employeList.id}"
-                                                                            th:text="${employeList.lastName+' '+employeList.firstName}">
+                                                                        <input  type="checkbox"  th:value="${employeList.id}"
+                                                                                th:text="${employeList.lastName+' '+employeList.firstName}">
                                                                     </div>
                                                                     <br>
-                                                                    <input type="submit" class="btn btn-primary"/>
+                                                                    <input type="submit" class="btn btn-primary" value="Valider"/>
                                                                 </div>
 
                                                             </div>
@@ -173,35 +204,6 @@ window.onclick = function(event) {
                                                         </div>
 
                                                     </div>
-
-
-                                                    <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Service <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 ">
-                                                            <select th:field="*{service}" class="form-control " >
-                                                                <option th:each="service : ${listService}"
-                                                                        th:value="${service.id}"
-                                                                        th:text="${service.name}" />
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="item form-group">
-                                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="budget">Budget<span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 ">
-                                                            <input type="text" id="budget" required="required" class="form-control "
-                                                                   th:field="*{budget}">
-                                                        </div>
-
-                                                    </div>
-
-
-
-
-
 
 
 
