@@ -1,8 +1,13 @@
 package net.crunchdroid.Services;
 
 
+import net.crunchdroid.Dto.PojetDto;
 import net.crunchdroid.Dto.TacheDto;
+import net.crunchdroid.Entities.Entreprise;
+import net.crunchdroid.Entities.Projet;
 import net.crunchdroid.Entities.Tache;
+import net.crunchdroid.Entities.User;
+import net.crunchdroid.Repositories.ProjetRepository;
 import net.crunchdroid.Repositories.TacheRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +20,24 @@ public class TacheService {
     @Autowired
     TacheRepository tacheRepository;
 
-    public boolean addTache(TacheDto tache){
-        tacheRepository.save(new Tache(tache.getNumero(),tache.getNomTache(),tache.getDescription(),tache.getDateDebutRealisation(),tache.getDateFinaleRealisation(),tache.getStatus(),tache.getEtatTache()));
+    @Autowired
+    ProjetRepository projetRepository;
+
+    public boolean addTache(TacheDto registration){
+        Tache tache = new Tache();
+        tache.setNumero(registration.getNumero());
+        tache.setNomTache(registration.getNomTache());
+        tache.setDescription(registration.getDescription());
+        tache.setDateDebutRealisation(registration.getDateDebutRealisation());
+        tache.setDateFinaleRealisation(registration.getDateFinaleRealisation());
+        tache.setStatus(registration.getStatus());
+        tache.setEtatTache(registration.getEtatTache());
+        String idprojet=registration.getDropDownItem();
+        int i = Integer.parseInt(idprojet);
+        Optional<Projet> projet= projetRepository.findById((long) i);
+        tache.setProjet(projet.get());
+        tacheRepository.save(tache);
+        //tacheRepository.save(new Tache(tache.getNumero(),tache.getNomTache(),tache.getDescription(),tache.getDateDebutRealisation(),tache.getDateFinaleRealisation(),tache.getStatus(),tache.getEtatTache()));
         return true;
     }
     public List<Tache> getAll() {
@@ -24,7 +45,7 @@ public class TacheService {
     }
 
 
-    public Tache save(TacheDto registration) {
+   /* public Tache save(TacheDto registration) {
         Tache tache = new Tache();
         tache.setNumero(registration.getNumero());
         tache.setNomTache(registration.getNomTache());
@@ -35,7 +56,7 @@ public class TacheService {
 
         return tacheRepository.save(tache);
     }
-
+*/
     public Tache getTacheById(Long id) throws Exception{
         Optional<Tache> tache= tacheRepository.findById(id);
         if(!tache.isPresent()) throw new Exception("We don't have any tache with this id");

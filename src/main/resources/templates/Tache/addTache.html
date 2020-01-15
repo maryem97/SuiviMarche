@@ -120,10 +120,10 @@
                                                         <label class="col-form-label col-md-3 col-sm-3 label-align"  >Projet <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 ">
-                                                            <select th:field="*{projet}" class="form-control">
-                                                                <option th:each="projet : ${listProjet}"
-                                                                        th:value="${projet.id}"
-                                                                        th:text="${projet.name}" />
+                                                            <select th:field="*{dropDownItem}" class="form-control">
+                                                                <option th:each="dropDownItem : ${listProjet}"
+                                                                        th:value="${dropDownItem.id}"
+                                                                        th:text="${dropDownItem.name}" />
                                                             </select>
                                                         </div>
                                                     </div>

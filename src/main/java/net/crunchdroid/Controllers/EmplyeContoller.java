@@ -3,9 +3,11 @@ package net.crunchdroid.Controllers;
 import net.crunchdroid.Dto.EmployeDto;
 import net.crunchdroid.Dto.UserDto;
 import net.crunchdroid.Entities.Employe;
+import net.crunchdroid.Entities.Entreprise;
 import net.crunchdroid.Entities.Service;
 import net.crunchdroid.Entities.User;
 import net.crunchdroid.Services.EmployeService;
+import net.crunchdroid.Services.EntrepriseService;
 import net.crunchdroid.Services.ServiceService;
 import net.crunchdroid.Services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,67 +23,70 @@ import java.util.List;
 @RequestMapping ("/employe")
 public class EmplyeContoller {
     @Autowired
-    EmployeService employeService;
+    UserServiceImpl userService;
 
     @Autowired
     ServiceService serviceService;
 
+    @Autowired
+    EntrepriseService entrepriseService;
     @GetMapping("/addEmploye")
     public String addEmploye(Model model) {
-        model.addAttribute("employe", new Employe());
+        model.addAttribute("user", new UserDto());
         List<Service> all = serviceService.getAll();
-        List<String> nameUsers=new ArrayList<>();
-        nameUsers.add("string1");
-        nameUsers.add("string2");
-        nameUsers.add("string3");
-        nameUsers.add("string4");
-        nameUsers.add("string5");
-        nameUsers.add("string6");
-        nameUsers.add("string7");
-        model.addAttribute("listString",nameUsers);
+        model.addAttribute("listString",all);
+
+
+        List<Entreprise> allEntreprise = entrepriseService.getAll();
+        model.addAttribute("listEntreprise",allEntreprise);
+
+        List<String> role = new ArrayList<>();
+        role.add("Employe");
+        model.addAttribute("listRole",role);
+
 
         return "Employe/Add_Employe";
     }
 
     @PostMapping("/saveEmploye")
-    public String saveEmploye(@ModelAttribute("employe") EmployeDto model) {
-        employeService.addEmploye(model);
-        String dropDownItem = model.getDropDownItem();
-        System.out.println(dropDownItem);
+    public String saveEmploye(@ModelAttribute("user") UserDto model) {
+
+            userService.addUser(model);
         return "redirect:/employe/getAll";
     }
 
     @GetMapping("/getAll")
     public String getAll(Model model){
-        List<Employe> listEmploye = employeService.getAll();
-        model.addAttribute("listEmploye", listEmploye);
+        List<User> listUser = userService.getAll();
+        model.addAttribute("listUser", listUser);
         return "Employe/Employes";
     }
 
     @RequestMapping("/updateEmploye/{id}")
-    public String updateEmploye(@PathVariable("id") Long id,@ModelAttribute("employe") EmployeDto model){
-        employeService.updateEmploye(id,model);
+    public String updateEmploye(@PathVariable("id") Long id,@ModelAttribute("user") UserDto model){
+        userService.updateUser(id,model);
         return "redirect:/employe/getAll";
     }
 
     @GetMapping("/edit/{id}")
     public String editEmploye(@PathVariable("id") Long id,Model model) throws Exception{
-        Employe employe=  employeService.getEmployeById(id);
-        model.addAttribute("employe",employe);
+        User user=  userService.getUserById(id);
+        model.addAttribute("user",user);
+
 
         return "/Employe/editEmploye";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteEmploye(@PathVariable("id") Long id){
-        employeService.deleteEmploye(id);
+        userService.deleteUser(id);
         return "redirect:/employe/getAll";
     }
 
 
-    @PostMapping("/addDirecteur")
+  /*  @PostMapping("/addDirecteur")
     public String saveDirecteur(@ModelAttribute("employe") EmployeDto model) {
-        employeService.addDirecteur(model);
+        userService.addDirecteur(model);
         String dropDownItem = model.getDropDownItem();
         System.out.println(dropDownItem);
         return "redirect:/employe/getAll";
@@ -93,14 +98,6 @@ public class EmplyeContoller {
         String dropDownItem = model.getDropDownItem();
         System.out.println(dropDownItem);
         return "redirect:/employe/getAll";
-    }
-//il faut que vous relger tout ca
-    /*7
-   associer f création les choes entre elle
-   laisser soit talble  emploer soit table user
-   ajouter boutoon cration user et jouer avec les roles
-   ensuite
-   stp vous travaillez ca d'ici sbah et après je traite avec toi l partie tache et authorization
-   est ce
-     */
+    }*/
+
 }

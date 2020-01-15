@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
+
 public class Tache {
     @Id
     @GeneratedValue
@@ -32,16 +32,9 @@ public class Tache {
     @ManyToMany
     List<Employe> employeList;
 
-    public Tache(String numero, String nomTache, String description, String dateDebutRealisation, String dateFinaleRealisation,String status,String etatTache) {
-    this.numero = numero;
-    this.nomTache=nomTache;
-    this.description=description;
-    this.dateDebutRealisation=dateDebutRealisation;
-    this.dateFinaleRealisation=dateFinaleRealisation;
-    this.status=status;
-    this.etatTache=etatTache;
-
-
+    public Tache() {
     }
+
+
 }
 

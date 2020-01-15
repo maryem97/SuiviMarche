@@ -15,6 +15,16 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TacheDto {
+    private String dropDownItem;
+
+    public String getDropDownItem() {
+        return dropDownItem;
+    }
+
+    public void setDropDownItem(String dropDownItem) {
+        this.dropDownItem = dropDownItem;
+    }
+
     @ManyToOne
     private Projet projet;
     @NotEmpty
@@ -107,6 +117,12 @@ public class TacheDto {
     }
 
 
+    public Projet getProjet() {
+        return projet;
+    }
 
+    public void setProjet(Projet projet) {
+        this.projet = projet;
+    }
 }
 
