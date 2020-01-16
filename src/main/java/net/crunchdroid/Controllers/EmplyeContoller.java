@@ -73,6 +73,16 @@ public class EmplyeContoller {
     public String editEmploye(@PathVariable("id") Long id,Model model) throws Exception{
         User user=  userService.getUserById(id);
         model.addAttribute("user",user);
+        List<Service> all = serviceService.getAll();
+        model.addAttribute("listString",all);
+
+
+        List<Entreprise> allEntreprise = entrepriseService.getAll();
+        model.addAttribute("listEntreprise",allEntreprise);
+
+        List<String> role = new ArrayList<>();
+        role.add("Employe");
+        model.addAttribute("listRole",role);
 
 
         return "/Employe/editEmploye";
