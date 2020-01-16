@@ -1,6 +1,7 @@
 package net.crunchdroid.Controllers;
 
 import net.crunchdroid.Dto.UserDto;
+import net.crunchdroid.Dto.UserRegistrationDto;
 import net.crunchdroid.Entities.Entreprise;
 import net.crunchdroid.Entities.Service;
 import net.crunchdroid.Entities.User;
@@ -79,7 +80,7 @@ public class PageController {
     }
 
     @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute("user") UserDto model) {
+    public String saveUser(@ModelAttribute("user") UserRegistrationDto model) {
 
         userService.addUser(model);
         return "redirect:/getAll";

@@ -2,6 +2,7 @@ package net.crunchdroid.Controllers;
 
 import net.crunchdroid.Dto.EmployeDto;
 import net.crunchdroid.Dto.UserDto;
+import net.crunchdroid.Dto.UserRegistrationDto;
 import net.crunchdroid.Entities.Employe;
 import net.crunchdroid.Entities.Entreprise;
 import net.crunchdroid.Entities.Service;
@@ -49,7 +50,7 @@ public class EmplyeContoller {
     }
 
     @PostMapping("/saveEmploye")
-    public String saveEmploye(@ModelAttribute("user") UserDto model) {
+    public String saveEmploye(@ModelAttribute("user") UserRegistrationDto model) {
 
             userService.addUser(model);
         return "redirect:/employe/getAll";
