@@ -103,6 +103,18 @@ public class PageController {
     public String editUser(@PathVariable("id") Long id,Model model) throws Exception{
       User user=  userService.getUserById(id);
       model.addAttribute("user",user);
+        List<Service> all = serviceService.getAll();
+        model.addAttribute("listString",all);
+
+
+        List<Entreprise> allEntreprise = entrepriseService.getAll();
+        model.addAttribute("listEntreprise",allEntreprise);
+
+        List<String> role = new ArrayList<>();
+        role.add("Directeur");
+        role.add("Chef Service");
+        role.add("Employe");
+        model.addAttribute("listRole",role);
 
         return "editUser";
     }

@@ -40,12 +40,24 @@
                                             <div class="left col-md-7 col-sm-7">
                                                 <h2 th:text="${user.lastName+' '+user.firstName}"></h2>
                                                 <strong>Email: </strong>
-                                                <div th:text="${user.email}"></div>
+                                                <span th:text="${user.email}"></span>
                                                 <strong>Rôle: </strong>
-                                                <div th:text="${user.role}"></div>
+                                                <span th:text="${user.role}"></span>
+                                                <strong>Entreprise: </strong>
+                                                <span th:each="entreprise : ${user.entreprise}" th:text="${entreprise.name}"></span>
+                                                <strong>Service: </strong>
+                                                <span th:each="service : ${user.service}" th:text="${service.name}"></span>
                                             </div>
                                             <div class="right col-md-5 col-sm-5 text-center">
                                                 <img src="/images/user.png" alt="" class="img-circle img-fluid" style="width:80px;height:80px;">
+                                            </div>
+                                            <div>
+                                            <button type="button" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-user"> </i> <a th:href="@{'/employe/edit/' + ${user.id}}" style="color:white;">Edit</a>
+                                            </button>
+                                            <button type="button" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-trash"> </i> <a th:href="@{'/employe/delete/' + ${user.id}}" style="color:white;">delete</a>
+                                            </button>
                                             </div>
                                         </div>
                                     </div>
