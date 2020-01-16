@@ -2,8 +2,10 @@ package net.crunchdroid.Controllers;
 
 import net.crunchdroid.Dto.SearchDto;
 import net.crunchdroid.Dto.ServiceDto;
+import net.crunchdroid.Entities.Entreprise;
 import net.crunchdroid.Entities.Service;
 import net.crunchdroid.Repositories.ServiceRepository;
+import net.crunchdroid.Services.EntrepriseService;
 import net.crunchdroid.Services.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,21 +23,24 @@ public class ServiceController {
     @Autowired
     ServiceService serviceService;
 
+    @Autowired
+    EntrepriseService entrepriseService;
 
-    @GetMapping("/addService/{id}")
-    public String addService(@PathVariable("id") Long idEntreprise, Model model){
+    @GetMapping("/addService")
+    public String addService(Model model){
         model.addAttribute("service",new ServiceDto());
-        model.addAttribute("idEntreprise",idEntreprise);
+        List<Entreprise> allEntreprise = entrepriseService.getAll();
+        model.addAttribute("listEntreprise",allEntreprise);
         return "Entreprise/add_Service";
     }
 
 
-    @PostMapping("/search")
+  /*  @PostMapping("/search")
     public String search(@ModelAttribute("serviceSearch") SearchDto serviceDto) throws Exception{
         String id = serviceDto.getId();
 
         return "redirect:/service/getAll?idEntreprise="+Long.parseLong(id);
-    }
+    }*/
 
     @PostMapping("/saveService")
     public String saveService(@ModelAttribute("service") ServiceDto serviceDto) throws Exception{

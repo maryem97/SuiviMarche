@@ -19,10 +19,11 @@ public class ServiceService {
     EntrepriseService entrepriseService;
 
 
-    public void saveService(ServiceDto serviceDto) throws Exception {
-        Long idEntreprise= serviceDto.getIdEntreprise();
-        Entreprise entrepriseById =entrepriseService.getEntrepriseById(idEntreprise);
-        serviceRepository.save(new net.crunchdroid.Entities.Service(serviceDto.getNameService(),entrepriseById));
+    public net.crunchdroid.Entities.Service saveService(ServiceDto serviceDto){
+        net.crunchdroid.Entities.Service service=new net.crunchdroid.Entities.Service();
+        service.setName(serviceDto.getNameService());
+        service.setEntreprise(serviceDto.getEntreprise());
+       return serviceRepository.save(service);
 
 
     }
