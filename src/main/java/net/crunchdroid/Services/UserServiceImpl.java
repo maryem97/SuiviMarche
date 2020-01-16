@@ -25,11 +25,31 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
+    public User addUser(UserRegistrationDto registration){
+        //userRepository.save(new User(user.getLastName(),user.getFirstName(),user.getEmail(),user.getPassword(),user.getRole(),user.getEntreprise(),user.getService()));
+        User user = new User();
+        user.setFirstName(registration.getFirstName());
+        user.setLastName(registration.getLastName());
+        user.setEmail(registration.getEmail());
+        user.setRole(registration.getRole());
+        user.setService(registration.getService());
+        user.setEntreprise(registration.getEntreprise());
+        user.setPassword(passwordEncoder.encode(registration.getPassword()));
 
-    public boolean addUser(UserDto user){
-        userRepository.save(new User(user.getLastName(),user.getFirstName(),user.getEmail(),user.getPassword(),user.getRole(),user.getEntreprise(),user.getService()));
-        return true;
+        user.setRoles(Arrays.asList(roleRepository.getOne((long) 1)));
+
+/*
+        Optional<Role> byId = roleRepository.findById(1);
+        Set<Role> roles = new HashSet<>();
+        //roles.add(new Role("USER"));
+        roles.add(byId.get());
+        user.setRoles(roles);
+        */
+        return userRepository.save(user);
+        //return true;
     }
 
     public List<User> getAll(){
@@ -48,7 +68,7 @@ public class UserServiceImpl implements UserService{
         byId.get().setLastName(model.getLastName());
         byId.get().setEmail(model.getEmail());
         byId.get().setRole(model.getRole());
-        byId.get().setPassword(model.getPassword());
+        byId.get().setPassword(passwordEncoder.encode(model.getPassword()));
         userRepository.save(byId.get());
         return true;
     }
@@ -63,8 +83,7 @@ public class UserServiceImpl implements UserService{
 
 
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+
 
     @Autowired
     RoleRepository roleRepository;
